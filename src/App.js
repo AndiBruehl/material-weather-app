@@ -36,10 +36,6 @@ const App = () => {
     }
   };
 
-  console.log('Stadt:', city); // Zeige die eingegebene Stadt in der Konsole an
-  console.log('WeatherData:', weatherData); // Zeige das aktuelle Wetterdaten-Array in der Konsole an
-  console.log('Fehler:', error); // Zeige den aktuellen Fehler in der Konsole an
-
   return (
     <div className="App">
       <h1>Wetter App</h1>
