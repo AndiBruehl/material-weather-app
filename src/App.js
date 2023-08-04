@@ -20,6 +20,7 @@ const App = () => {
 
   const handleInputChange = (e) => {
     setCity(e.target.value);
+    setError(null); // Clear the error when user starts typing
   };
 
   const handleInputKeyPress = (e) => {
@@ -47,42 +48,68 @@ const App = () => {
   };
 
   return (
-    <div  style={{backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '878px' }} >
-    <Container maxWidth="md" align="center">
-      <div className="App">
-        <Typography variant="h1" fontFamily="Roboto" style={{ marginBottom: '20px', color: '#90caf9' }}>
-          Wetter App
-        </Typography>
-        <TextField
-          id="standard-basic"
-          label="Stadtnamen eingeben"
-          size="small"
-          variant="outlined"
-          value={city}
-          onChange={handleInputChange}
-          onKeyPress={handleInputKeyPress}
-          style={{color: '#90caf9'}}
-        />
-        <Button startIcon={<SendIcon />} variant="contained" onClick={getWeatherData} size="medium" style={{ marginLeft: '20px' }}>
-          Absenden
-        </Button>
+    <div style={{ backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '923px' }} >
+      <Container maxWidth="md" align="center">
+        <div className="App">
+          <Typography variant="h1" fontFamily="Roboto" style={{ marginBottom: '20px', color: '#90caf9' }}>
+            Wetter App
+          </Typography>
+          <TextField
+            InputProps={{
+              style: {
+                color: '#90caf9', // Hier die gewünschte Farbe für den Text im Textfeld angeben
+              },
+            }}
+            InputLabelProps={{
+              style: {
+                color: '#90caf9', 
+              },
+            }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#90caf9', 
 
-        <Stack spacing={2} sx={{ marginTop: '20px'}} direction= 'row'>
-          {weatherData.map((data, index) => (
-            <Card key={index} style={{ background: '#90caf9'}}>
-              <CardContent>
-                <Typography variant="h5">Wetterdaten für {data.name}</Typography>
-                <Typography variant="body1">Temperatur: {data.main.temp.toFixed(1)} °C</Typography>
-                <Typography variant="body1">Luftfeuchtigkeit: {data.main.humidity} %</Typography>
-                <Typography variant="body1">Wetterbeschreibung: {data.weather[0].description}</Typography>
-              </CardContent>
-            </Card>
-          ))}
-        </Stack>
+                },
+                '&:hover fieldset': {
+                  borderColor: '#f57c00',
+                },
+                '&:active fieldset': {
+                  borderColor: '#388e3c',
+                }
+              },
+            }}
+            
+            error={Boolean(error)} // Apply error style if error exists
+            id="outlined-textarea"
+            className="ein"
+            label="Stadtnamen eingeben"
+            size="small"
+            variant="outlined"
+            value={city}
+            onChange={handleInputChange}
+            onKeyPress={handleInputKeyPress}
+            helperText={error} // Display the error message as the helper text
+            color="primary" // Set the same color code as h1
+          />
+          <Button startIcon={<SendIcon />} variant="contained" onClick={getWeatherData} size="medium" style={{ marginLeft: '20px' }}>
+            Absenden
+          </Button>
 
-        {error && <p>{error}</p>}
-      </div>
-    </Container>
+          <Stack spacing={2} sx={{ marginTop: '20px' }} direction='row'>
+            {weatherData.map((data, index) => (
+              <Card key={index} style={{ background: '#90caf9' }}>
+                <CardContent>
+                  <Typography variant="h5">Wetterdaten für {data.name}</Typography>
+                  <Typography variant="body1">Temperatur: {data.main.temp.toFixed(1)} °C</Typography>
+                  <Typography variant="body1">Luftfeuchtigkeit: {data.main.humidity} %</Typography>
+                  <Typography variant="body1">Wetterbeschreibung: {data.weather[0].description}</Typography>
+                </CardContent>
+              </Card>
+            ))}
+          </Stack>
+        </div>
+      </Container>
     </div>
   );
 };
