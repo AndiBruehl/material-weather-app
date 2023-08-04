@@ -47,7 +47,7 @@ const App = () => {
   return (
     <Container maxWidth="md" align="center">
       <div className="App">
-        <Typography variant='h1' fontFamily='Roboto'>
+        <Typography variant='h1' fontFamily='Roboto' style={{ marginBottom: '20px' }}>
         Wetter App
         </Typography>
         <TextField id="standard-basic"  label="Stadtnamen eingeben" size='small' variant="outlined" value={city} onChange={handleInputChange} onKeyPress={handleInputKeyPress}/>
@@ -58,7 +58,7 @@ const App = () => {
           onKeyPress={handleInputKeyPress}
           placeholder="Stadtnamen eingeben"
         /> */}
-        <Button variant="contained" onClick={getWeatherData} size='medium' style={{ marginLeft: '20px' }}>
+        <Button variant="contained" onClick={getWeatherData} size='medium' style={{ marginLeft: '20px'}}>
         Absenden
         </Button>
       <Stack direction="row" spacing={3}>
