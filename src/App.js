@@ -4,6 +4,7 @@ import { Stack, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import SendIcon from '@mui/icons-material/Send';
 import '@fontsource/roboto/500.css';
@@ -64,6 +65,8 @@ const App = () => {
         <Button startIcon={<SendIcon />} variant="contained" onClick={getWeatherData} size='medium' style={{ marginLeft: '20px'}}>
         Absenden
         </Button>
+        <Card sx={{ minWidth: 275 }}>
+      <CardContent>
       <Stack direction="row" spacing={3}>
       {weatherData.map((data, index) => (
         <div key={index}>
@@ -74,6 +77,8 @@ const App = () => {
         </div>
       ))}
       </Stack>
+      </CardContent>
+    </Card>
       {error && <p>{error}</p>}
     </div>
     </Container>
