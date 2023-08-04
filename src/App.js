@@ -9,6 +9,7 @@ import CardContent from '@mui/material/CardContent';
 import SendIcon from '@mui/icons-material/Send';
 import '@fontsource/roboto/500.css';
 import img from './img.jpg';
+import Footer from './Footer.js'
 
 const API_KEY = '384e601cb35001ae545fd783e37b5db0'; // Dein OpenWeatherMap API-Schlüssel
 
@@ -53,6 +54,7 @@ const App = () => {
       backgroundSize: 'cover',
       height: '100vh',
       backgroundAttachment: 'fixed',
+      overflow: 'hidden',
     }}>
       <Container maxWidth="md" align="center">
         <div className="App">
@@ -113,6 +115,7 @@ const App = () => {
           </Stack>
         </div>
       </Container>
+      <Footer />
     </div>
   );
 };
