@@ -72,10 +72,10 @@ const App = () => {
 
                 },
                 '&:hover fieldset': {
-                  borderColor: '#f57c00',
+                  borderColor: '#29b6f6',
                 },
                 '&:active fieldset': {
-                  borderColor: '#388e3c',
+                  borderColor: '#0288d1',
                 }
               },
             }}
