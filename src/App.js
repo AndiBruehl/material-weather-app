@@ -4,6 +4,8 @@ import { Stack, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import CardContent from '@mui/material/CardContent';
+import SendIcon from '@mui/icons-material/Send';
 import '@fontsource/roboto/500.css';
 
 
@@ -15,6 +17,7 @@ const App = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState([]);
   const [error, setError] = useState(null);
+
 
   const handleInputChange = (e) => {
     setCity(e.target.value);
@@ -58,7 +61,7 @@ const App = () => {
           onKeyPress={handleInputKeyPress}
           placeholder="Stadtnamen eingeben"
         /> */}
-        <Button variant="contained" onClick={getWeatherData} size='medium' style={{ marginLeft: '20px'}}>
+        <Button endIcon={<SendIcon />} variant="contained" onClick={getWeatherData} size='medium' style={{ marginLeft: '20px'}}>
         Absenden
         </Button>
       <Stack direction="row" spacing={3}>
