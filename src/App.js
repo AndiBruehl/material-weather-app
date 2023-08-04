@@ -63,7 +63,7 @@ const App = () => {
           Absenden
         </Button>
 
-        <Stack spacing={2} sx={{ marginTop: '20px', direction: 'row'}}>
+        <Stack spacing={2} sx={{ marginTop: '20px'}} direction= 'row'>
           {weatherData.map((data, index) => (
             <Card key={index} >
               <CardContent>
