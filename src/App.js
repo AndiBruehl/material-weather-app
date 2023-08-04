@@ -61,7 +61,7 @@ const App = () => {
           onKeyPress={handleInputKeyPress}
           placeholder="Stadtnamen eingeben"
         /> */}
-        <Button endIcon={<SendIcon />} variant="contained" onClick={getWeatherData} size='medium' style={{ marginLeft: '20px'}}>
+        <Button startIcon={<SendIcon />} variant="contained" onClick={getWeatherData} size='medium' style={{ marginLeft: '20px'}}>
         Absenden
         </Button>
       <Stack direction="row" spacing={3}>
