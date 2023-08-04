@@ -47,10 +47,10 @@ const App = () => {
   };
 
   return (
-    <div  style={{backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '878px', backgroundPositionY: '-20px' }} >
+    <div  style={{backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '878px' }} >
     <Container maxWidth="md" align="center">
       <div className="App">
-        <Typography variant="h1" fontFamily="Roboto" style={{ marginTop: '20px', marginBottom: '20px', color: '#90caf9' }}>
+        <Typography variant="h1" fontFamily="Roboto" style={{ marginBottom: '20px', color: '#90caf9' }}>
           Wetter App
         </Typography>
         <TextField
