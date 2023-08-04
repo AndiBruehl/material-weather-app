@@ -46,7 +46,7 @@ const App = () => {
         onKeyPress={handleInputKeyPress}
         placeholder="Stadtnamen eingeben"
       />
-      <button onClick={getWeatherData}>Wetter abrufen</button>
+      <button variant="contained" onClick={getWeatherData}>Wetter abrufen</button>
 
       {weatherData.map((data, index) => (
         <div key={index}>
