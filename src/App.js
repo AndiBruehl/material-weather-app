@@ -8,7 +8,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import SendIcon from '@mui/icons-material/Send';
 import '@fontsource/roboto/500.css';
-import img from './img1.jpg'
+import img from './img.jpg'
 
 
 const API_KEY = '384e601cb35001ae545fd783e37b5db0'; // Dein OpenWeatherMap API-Schlüssel
@@ -47,10 +47,10 @@ const App = () => {
   };
 
   return (
-    <div  style={{backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '878px' }} >
+    <div  style={{backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '878px', backgroundPositionY: '-20px' }} >
     <Container maxWidth="md" align="center">
       <div className="App">
-        <Typography variant="h1" fontFamily="Roboto" style={{ marginBottom: '20px' }}>
+        <Typography variant="h1" fontFamily="Roboto" style={{ marginTop: '20px', marginBottom: '20px', color: '#90caf9' }}>
           Wetter App
         </Typography>
         <TextField
@@ -61,6 +61,7 @@ const App = () => {
           value={city}
           onChange={handleInputChange}
           onKeyPress={handleInputKeyPress}
+          style={{color: '#90caf9'}}
         />
         <Button startIcon={<SendIcon />} variant="contained" onClick={getWeatherData} size="medium" style={{ marginLeft: '20px' }}>
           Absenden
@@ -68,7 +69,7 @@ const App = () => {
 
         <Stack spacing={2} sx={{ marginTop: '20px'}} direction= 'row'>
           {weatherData.map((data, index) => (
-            <Card key={index} >
+            <Card key={index} style={{ background: '#90caf9'}}>
               <CardContent>
                 <Typography variant="h5">Wetterdaten für {data.name}</Typography>
                 <Typography variant="body1">Temperatur: {data.main.temp.toFixed(1)} °C</Typography>
