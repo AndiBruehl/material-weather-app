@@ -8,6 +8,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import SendIcon from '@mui/icons-material/Send';
 import '@fontsource/roboto/500.css';
+import img from './img1.jpg'
+
 
 const API_KEY = '384e601cb35001ae545fd783e37b5db0'; // Dein OpenWeatherMap API-Schlüssel
 
@@ -45,6 +47,7 @@ const App = () => {
   };
 
   return (
+    <div  style={{backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '878px' }} >
     <Container maxWidth="md" align="center">
       <div className="App">
         <Typography variant="h1" fontFamily="Roboto" style={{ marginBottom: '20px' }}>
@@ -79,6 +82,7 @@ const App = () => {
         {error && <p>{error}</p>}
       </div>
     </Container>
+    </div>
   );
 };
 
