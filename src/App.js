@@ -9,16 +9,12 @@ import CardContent from '@mui/material/CardContent';
 import SendIcon from '@mui/icons-material/Send';
 import '@fontsource/roboto/500.css';
 
-
-
-
 const API_KEY = '384e601cb35001ae545fd783e37b5db0'; // Dein OpenWeatherMap API-Schlüssel
 
 const App = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState([]);
   const [error, setError] = useState(null);
-
 
   const handleInputChange = (e) => {
     setCity(e.target.value);
@@ -51,36 +47,37 @@ const App = () => {
   return (
     <Container maxWidth="md" align="center">
       <div className="App">
-        <Typography variant='h1' fontFamily='Roboto' style={{ marginBottom: '20px' }}>
-        Wetter App
+        <Typography variant="h1" fontFamily="Roboto" style={{ marginBottom: '20px' }}>
+          Wetter App
         </Typography>
-        <TextField id="standard-basic"  label="Stadtnamen eingeben" size='small' variant="outlined" value={city} onChange={handleInputChange} onKeyPress={handleInputKeyPress}/>
-        {/* <input
-          type="text"
+        <TextField
+          id="standard-basic"
+          label="Stadtnamen eingeben"
+          size="small"
+          variant="outlined"
           value={city}
           onChange={handleInputChange}
           onKeyPress={handleInputKeyPress}
-          placeholder="Stadtnamen eingeben"
-        /> */}
-        <Button startIcon={<SendIcon />} variant="contained" onClick={getWeatherData} size='medium' style={{ marginLeft: '20px'}}>
-        Absenden
+        />
+        <Button startIcon={<SendIcon />} variant="contained" onClick={getWeatherData} size="medium" style={{ marginLeft: '20px' }}>
+          Absenden
         </Button>
-        <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-      <Stack direction="row" spacing={3}>
-      {weatherData.map((data, index) => (
-        <div key={index}>
-          <h2>Wetterdaten für {data.name}</h2>
-          <p>Temperatur: {data.main.temp.toFixed(1)} °C</p>
-          <p>Luftfeuchtigkeit: {data.main.humidity} %</p>
-          <p>Wetterbeschreibung: {data.weather[0].description}</p>
-        </div>
-      ))}
-      </Stack>
-      </CardContent>
-    </Card>
-      {error && <p>{error}</p>}
-    </div>
+
+        <Stack spacing={2} sx={{ marginTop: '20px', direction: 'row'}}>
+          {weatherData.map((data, index) => (
+            <Card key={index} >
+              <CardContent>
+                <Typography variant="h5">Wetterdaten für {data.name}</Typography>
+                <Typography variant="body1">Temperatur: {data.main.temp.toFixed(1)} °C</Typography>
+                <Typography variant="body1">Luftfeuchtigkeit: {data.main.humidity} %</Typography>
+                <Typography variant="body1">Wetterbeschreibung: {data.weather[0].description}</Typography>
+              </CardContent>
+            </Card>
+          ))}
+        </Stack>
+
+        {error && <p>{error}</p>}
+      </div>
     </Container>
   );
 };
